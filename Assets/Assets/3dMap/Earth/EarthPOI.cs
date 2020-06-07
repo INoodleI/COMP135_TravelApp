@@ -115,4 +115,23 @@ public class POIEntry
 [CreateAssetMenu(menuName = "Earth POI System/Entry data")]
 public class POIEntryData : ScriptableObject
 {
+    [Header("Destination Screen")]
+    public Sprite coverPhoto;
+    public string coverDescription;
+    [Range(0,5)]
+    public int rating;
+    public Vector2 budgetRange;
+    public List<Attractions> attractions;
+}
+
+[Serializable]
+public class Attractions
+{
+    public String name;
+    public Sprite sprite;
+    public string description;
+    [Range(0,5)]
+    public int rating;
+    public int cost;
+    public int time_hours;
 }

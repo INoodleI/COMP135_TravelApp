@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Cairo Egypt Data
+  m_EditorClassIdentifier: Assembly-CSharp::POIEntryData
+  coverPhoto: {fileID: 21300000, guid: cc4c2055ecbbc6747a8f98a6c11ade31, type: 3}
+  coverDescription: Cairo.\nThis place has some pyramids\nAlso nice things too\nLook
+    at how cool this nice thingy is you should visit maybe.\nMaybe\nProbably not
+  rating: 0
+  budgetRange: {x: -1, y: 0}
+  attractions:
+  - name: Giza Pyramids
+    sprite: {fileID: 21300000, guid: f927df1e7795b9241b94ecae39d62b1b, type: 3}
+    description: Private Half Day tour to see the Giza Pyramids. Ride camels and
+      some other stuff. Dudes will accompany you. Approved by the council of lawn
+      chair dads.
+    rating: 4
+    cost: 9999
+    time_hours: 8
+  - name: The Egyptian Museum
+    sprite: {fileID: 21300000, guid: 5e1686d0ac4429e42a6055e2ad5a61e7, type: 3}
+    description: The absolutely staggering collection of antiquities displayed in
+      Cairo's Egyptian Museum makes it one of the world's great museums. You would
+      need a lifetime to see everything on show. Highlights include Tutankhamun's
+      death mask and sarcophagi (Room 3), the pharaoh's lion throne (Room 35), and
+      his fascinating wardrobe collection (Room 9). Afterwards, don't miss a wander
+      through the Egyptian jewelry collection (Room 4).
+    rating: 5
+    cost: 30
+    time_hours: 4
+  - name: Al-Azhar Mosque
+    sprite: {fileID: 21300000, guid: 9436436502ed6b343a0f3a43e20613cf, type: 3}
+    description: "Al-Azhar Mosque is the finest building of Cairo's Fatimid era and
+      one of the city's earliest surviving mosques, completed in AD 972. It's also
+      one of the world's oldest universities \u2014 Caliph El-Aziz bestowed it with
+      the status of university in AD 988 (the other university vying for \"oldest\"
+      status is in Fes) and today, Al-Azhar University is still the leading theological
+      center of the Islamic world."
+    rating: 4
+    cost: 50
+    time_hours: 4

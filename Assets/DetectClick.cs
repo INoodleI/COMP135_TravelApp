@@ -7,6 +7,6 @@ public class DetectClick : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        print("I was clicked");
+        print("I was clicked: "+name);
     }
 }

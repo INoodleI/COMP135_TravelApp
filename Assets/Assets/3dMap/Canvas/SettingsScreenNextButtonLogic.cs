@@ -8,7 +8,7 @@ public class SettingsScreenNextButtonLogic : MonoBehaviour
     public Fade button;
     private void Update()
     {
-        if (PlayerPrefs.GetInt("homeLocation", 0) == 0 || PlayerPrefs.GetInt("tripDuration", -1) == -1 ||
+        if (PlayerPrefs.GetInt("homeLocation", -1) == -1 || PlayerPrefs.GetInt("tripDuration", -1) == -1 ||
             PlayerPrefs.GetInt("maxBudget", -1) == -1)
         {
             button.SetFade(false);

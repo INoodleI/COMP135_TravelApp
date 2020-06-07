@@ -58,17 +58,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Assets\3dMap\Bezier.cs" />
      <Compile Include="Assets\Assets\3dMap\Camera\CamToPOI.cs" />
+     <Compile Include="Assets\Assets\3dMap\Canvas\AttractionScreenLogic.cs" />
+     <Compile Include="Assets\Assets\3dMap\Canvas\AttractionSlot.cs" />
+     <Compile Include="Assets\Assets\3dMap\Canvas\DestinationScreenLogic.cs" />
      <Compile Include="Assets\Assets\3dMap\Canvas\IntroCanvasAnimator.cs" />
      <Compile Include="Assets\Assets\3dMap\Canvas\SettingsScreenLogic.cs" />
      <Compile Include="Assets\Assets\3dMap\Canvas\SettingsScreenNextButtonLogic.cs" />
      <Compile Include="Assets\Assets\3dMap\Earth\EarthPOI.cs" />
      <Compile Include="Assets\Assets\3dMap\Earth\MouseClick.cs" />
-     <Compile Include="Assets\Assets\3dMap\SettingsManager.cs" />
-     <Compile Include="Assets\Assets\3dMap\Tack\TackControl.cs" />
+     <Compile Include="Assets\Assets\3dMap\Earth\Tack\TackControl.cs" />
+     <Compile Include="Assets\Assets\BudgetBar.cs" />
      <Compile Include="Assets\Assets\BudgetEnteringScreen\Fade.cs" />
      <Compile Include="Assets\Assets\BudgetEnteringScreen\FadeOnDropdown.cs" />
      <Compile Include="Assets\Assets\BudgetEnteringScreen\NumbersOnlyTextField.cs" />
+     <Compile Include="Assets\Assets\PlayerChoices.cs" />
      <Compile Include="Assets\Assets\TitleScreen\SceneManager.cs" />
      <Compile Include="Assets\DetectClick.cs" />
      <Compile Include="Assets\Modern UI Pack\Scripts\Animated Icon\AnimatedIconHandler.cs" />
