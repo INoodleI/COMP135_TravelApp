@@ -8,7 +8,7 @@ public class Fade : MonoBehaviour
 {
     [SerializeField]
     private bool visible;
-    public float time;
+    public float time = 0.2f;
     private CanvasGroup canvasGroup;
     // Start is called before the first frame update
     void Start()

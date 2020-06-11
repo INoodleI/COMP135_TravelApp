@@ -15,14 +15,14 @@ public class MouseClick : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             index++;
-            if (index == poi.POI.Count)
+            if (index == poi.requestPOI().Count)
                 index = -1;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             index--;
             if (index == -2)
-                index = poi.POI.Count-1;
+                index = poi.requestPOI().Count-1;
         }
     }
 }

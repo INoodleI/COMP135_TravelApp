@@ -17,25 +17,33 @@
               <e p="AttractionScreenLogic.cs" t="Include" />
               <e p="AttractionSlot.cs" t="Include" />
               <e p="DestinationScreenLogic.cs" t="Include" />
+              <e p="FinalScreenLogic.cs" t="Include" />
+              <e p="HotelScreenLogic.cs" t="Include" />
+              <e p="HotelSlot.cs" t="Include" />
               <e p="IntroCanvasAnimator.cs" t="Include" />
               <e p="SettingsScreenLogic.cs" t="Include" />
               <e p="SettingsScreenNextButtonLogic.cs" t="Include" />
             </e>
             <e p="Earth" t="Include">
+              <e p="Attractions.cs" t="Include" />
               <e p="EarthPOI.cs" t="Include" />
               <e p="MouseClick.cs" t="Include" />
+              <e p="POIEntry.cs" t="Include" />
               <e p="Tack" t="Include">
                 <e p="TackControl.cs" t="Include" />
               </e>
             </e>
           </e>
+          <e p="BackButton.cs" t="Include" />
           <e p="BudgetBar.cs" t="Include" />
           <e p="BudgetEnteringScreen" t="Include">
             <e p="Fade.cs" t="Include" />
             <e p="FadeOnDropdown.cs" t="Include" />
             <e p="NumbersOnlyTextField.cs" t="Include" />
+            <e p="NumbersTextFieldInRange.cs" t="Include" />
           </e>
           <e p="PlayerChoices.cs" t="Include" />
+          <e p="POIEntryData.cs" t="Include" />
           <e p="TitleScreen" t="Include">
             <e p="SceneManager.cs" t="Include" />
           </e>

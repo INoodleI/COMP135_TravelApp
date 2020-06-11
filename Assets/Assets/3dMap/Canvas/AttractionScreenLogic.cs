@@ -14,9 +14,12 @@ public class AttractionScreenLogic : MonoBehaviour
 
     public List<AttractionSlot> slots;
     public BudgetBar bBar;
+
+    public Fade nextButton;
+    public Fade overBudgetText;
     public void Start()
     {
-        pc = PlayerChoices.instance;
+        pc = GameObject.FindGameObjectWithTag("PC").GetComponent<PlayerChoices>();
     }
 
     public void LoadAttractions(POIEntryData data)
@@ -35,7 +38,7 @@ public class AttractionScreenLogic : MonoBehaviour
             GameObject g = Instantiate(attractionSlotPrefab, slotsParent);
             AttractionSlot slot = g.GetComponent<AttractionSlot>();
             slots.Add(slot);
-            slot.Init(a, this);
+            slot.Init(a, this, true);
         }
     }
 
@@ -51,6 +54,20 @@ public class AttractionScreenLogic : MonoBehaviour
         else
         {
             pc.attractions.Remove(a);
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (bBar.usedBudget > pc.maxBudget)
+        {
+            overBudgetText.SetFade(true);
+            nextButton.SetFade(false);
+        }
+        else
+        {
+            overBudgetText.SetFade(false);
+            nextButton.SetFade(true);
         }
     }
 }

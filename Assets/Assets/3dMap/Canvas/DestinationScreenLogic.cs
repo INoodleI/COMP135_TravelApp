@@ -10,10 +10,13 @@ using Random = System.Random;
 
 public class DestinationScreenLogic : MonoBehaviour
 {
+    public EarthPOI poi;
+    public WindowManager windows;
     public AttractionScreenLogic asLogic;
+    public HotelScreenLogic hsLogic;
     public CustomDropdown destination;
     public Sprite locationIcon;
-    private PlayerChoices pc;
+    public PlayerChoices pc;
     [FormerlySerializedAs("nextButton")] public Fade noPlaneButton;
     public Fade economyPlane;
     public TMP_Text economyText;
@@ -28,7 +31,6 @@ public class DestinationScreenLogic : MonoBehaviour
     public void Start()
     {
         SetUpLocationDropdown();
-        pc = PlayerChoices.instance;
         noPlaneButton.SetFade(false);
         economyPlane.SetFade(false);
         businessPlane.SetFade(false);
@@ -41,7 +43,7 @@ public class DestinationScreenLogic : MonoBehaviour
     public void SetUpLocationDropdown()
     {
         EarthPOI poiSystem = EarthPOI.instance;
-        foreach (var entry in poiSystem.POI)
+        foreach (var entry in poiSystem.requestPOI())
         {
             destination.CreateNewItem(entry.name, locationIcon);
         }
@@ -52,7 +54,8 @@ public class DestinationScreenLogic : MonoBehaviour
     {
         value -= 1;
         pc.destination = value;
-        EarthPOI.instance.SetCurrentPOI(value);
+        poi.SetCurrentPOI(value);
+        pc.attractions.Clear();
 
         if (value == -1)
         {
@@ -66,7 +69,7 @@ public class DestinationScreenLogic : MonoBehaviour
         else
         {
             displayImage.enabled = true;
-            POIEntryData data = EarthPOI.instance.POI[value].entryData;
+            POIEntryData data = poi.requestPOI()[value].entryData;
             displayImage.sprite = data.coverPhoto;
             description.text = data.coverDescription.Replace("\\n","\n");
             if (value == pc.home)
@@ -77,7 +80,7 @@ public class DestinationScreenLogic : MonoBehaviour
             }
             else
             {
-                float angle = Quaternion.Angle(EarthPOI.instance.POI[pc.home].tack.transform.rotation, EarthPOI.instance.POI[value].tack.transform.rotation);
+                float angle = Quaternion.Angle(poi.requestPOI()[pc.home].tack.transform.rotation, poi.requestPOI()[value].tack.transform.rotation);
                 economyCost = (int) (angle) * 3 + 200;
                 businessCost = (int)(economyCost * 2.5f);
                 economyText.text = "Economy Class:\n$" + economyCost;
@@ -88,6 +91,7 @@ public class DestinationScreenLogic : MonoBehaviour
                 noPlaneButton.SetFade(false);
             }
             asLogic.LoadAttractions(data);
+            hsLogic.LoadHotels(data);
         }
     }
 
@@ -95,15 +99,19 @@ public class DestinationScreenLogic : MonoBehaviour
     {
         pc.planeType = "Business Class";
         pc.planeCost = businessCost;
+        windows.OpenPanel("HotelScreen");
     }
     public void economyChoice()
     {
         pc.planeType = "Economy Class";
         pc.planeCost = economyCost;
+        windows.OpenPanel("HotelScreen");
     }
     public void noPlaneChoice()
     {
         pc.planeType = "No Plane Required!";
         pc.planeCost = 0;
+        pc.hotel = null;
+        windows.OpenPanel("AttractionsScreen");
     }
 }

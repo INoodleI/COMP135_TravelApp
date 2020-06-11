@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EarthCam
   - TackPos
+  - PC
   layers:
   - Default
   - TransparentFX

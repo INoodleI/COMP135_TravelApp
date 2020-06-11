@@ -7,13 +7,16 @@ using UnityEngine;
 public class EarthPOI : MonoBehaviour
 {
     public static EarthPOI instance;
-    public List<POIEntry> POI = new List<POIEntry>();
+    [SerializeField]
+    private List<POIEntry> POI = new List<POIEntry>();
     public GameObject thumbTackPrefab;
 
     public CamToPOI camToPoi;
     public int currentPOI;
     
     public float dist;
+
+    private bool initialized = false;
 
     private void Awake()
     {
@@ -24,7 +27,7 @@ public class EarthPOI : MonoBehaviour
             SpawnInfoMarker(entry);
         }
 
-        currentPOI = -9;
+        currentPOI = -1;
     }
 
     private void Start()
@@ -32,6 +35,20 @@ public class EarthPOI : MonoBehaviour
         SetCurrentPOI(-1);
     }
 
+
+    public List<POIEntry> requestPOI()
+    {
+        if (!initialized)
+        {
+            Alphabetize();
+            foreach (var entry in POI)
+            {
+                SpawnInfoMarker(entry);
+            }
+        }
+
+        return POI;
+    }
 
     private void Alphabetize()
     {
@@ -97,41 +114,4 @@ public class EarthPOI : MonoBehaviour
         camToPoi.SetTargetRot(Quaternion.Euler(new Vector3(POI[currentPOI].y, POI[currentPOI].x, 0)));
         camToPoi.SetTargetDist(-0.8f);
     }
-}
-
-[Serializable]
-public class POIEntry
-{
-    public string name;
-    [Range(-180,180)]
-    public float x;
-    [Range (-89,89)]
-    public float y;
-    public GameObject tack = null;
-    public TackControl tackControl;
-    public POIEntryData entryData;
-}
-
-[CreateAssetMenu(menuName = "Earth POI System/Entry data")]
-public class POIEntryData : ScriptableObject
-{
-    [Header("Destination Screen")]
-    public Sprite coverPhoto;
-    public string coverDescription;
-    [Range(0,5)]
-    public int rating;
-    public Vector2 budgetRange;
-    public List<Attractions> attractions;
-}
-
-[Serializable]
-public class Attractions
-{
-    public String name;
-    public Sprite sprite;
-    public string description;
-    [Range(0,5)]
-    public int rating;
-    public int cost;
-    public int time_hours;
 }
